@@ -3,16 +3,47 @@
 from __future__ import annotations
 
 import json
+import os
 import subprocess
 import time
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlencode
 
+from dotenv import load_dotenv
+
 from isometric_nyc.landmark_snapshot.config import LandmarkConfig
 
 WEB_RENDER_DIR = Path(__file__).resolve().parents[2] / "web_render"
 DEFAULT_PORT = 5173
+
+
+def ensure_web_render_env() -> None:
+  """
+  Make sure Vite can see a tiles API key.
+
+  Cloud/agent secrets commonly inject GOOGLE_TILES_API_KEY (non-VITE_ name).
+  Vite only exposes VITE_* to the browser bundle, so mirror the key into
+  src/web_render/.env when needed.
+  """
+  load_dotenv()
+  tiles_key = os.getenv("GOOGLE_TILES_API_KEY") or os.getenv(
+    "VITE_GOOGLE_TILES_API_KEY"
+  )
+  if not tiles_key:
+    raise ValueError(
+      "GOOGLE_TILES_API_KEY (or VITE_GOOGLE_TILES_API_KEY) is required to render. "
+      "Add it in Cursor Secrets / .env, then retry."
+    )
+
+  env_path = WEB_RENDER_DIR / ".env"
+  desired = f"VITE_GOOGLE_TILES_API_KEY={tiles_key}\n"
+  if env_path.exists() and "VITE_GOOGLE_TILES_API_KEY=" in env_path.read_text():
+    # Keep existing file if it already defines the Vite key; still ensure process env.
+    os.environ.setdefault("VITE_GOOGLE_TILES_API_KEY", tiles_key)
+    return
+  env_path.write_text(desired)
+  os.environ["VITE_GOOGLE_TILES_API_KEY"] = tiles_key
 
 
 def write_job_view_json(job_dir: Path, config: LandmarkConfig) -> Path:
@@ -39,12 +70,15 @@ def start_web_render_server(port: int = DEFAULT_PORT) -> subprocess.Popen[Any]:
   """Start the Vite web_render dev server."""
   if not WEB_RENDER_DIR.exists():
     raise FileNotFoundError(f"web_render directory not found: {WEB_RENDER_DIR}")
+  ensure_web_render_env()
 
+  env = os.environ.copy()
   process = subprocess.Popen(
     ["bun", "run", "dev", "--port", str(port), "--strictPort"],
     cwd=WEB_RENDER_DIR,
     stdout=subprocess.PIPE,
     stderr=subprocess.STDOUT,
+    env=env,
   )
   # Give Vite a moment; callers also wait on TILES_LOADED.
   time.sleep(4)
