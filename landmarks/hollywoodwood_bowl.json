@@ -1,0 +1,16 @@
+{
+  "id": "hollywoodwood-bowl",
+  "name": "Hollywood Bowl",
+  "lat": 34.1122,
+  "lon": -118.3391,
+  "size_meters": 420,
+  "camera_azimuth_degrees": -15,
+  "camera_elevation_degrees": -45,
+  "view_height_meters": 280,
+  "style_reference": "references/style_c.png",
+  "print": {
+    "resolution": "2k",
+    "aspect_ratio": "1:1"
+  },
+  "prompt_extra": "Emphasize the iconic band shell and hillside seating bowl."
+}
