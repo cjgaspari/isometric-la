@@ -43,6 +43,7 @@ If you open the app at [http://localhost:3000](http://localhost:3000) you'll be 
 * **[Deployment](docs/deployment.md)** How the production app is deployed
 * **[Generation](docs/generation.md)** How to generate new tiles
 * **[Generation approaches](docs/generation_approaches.md)** NYC vs London/Toronto methods and options for Los Angeles
+* **[Local Mac setup](docs/local_mac_setup.md)** On-device Apple Silicon hardware + software spec
 * **[Inference](inference/README.md)** How to set up custom fine-tuned model inference on Modal
 * **[Water Shader](docs/water_shader.md)** The WIP water shader documentation
 
