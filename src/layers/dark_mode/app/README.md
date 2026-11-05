@@ -1,6 +1,6 @@
 # Dark Mode Demo
 
-A side-by-side comparison viewer for day/night versions of Isometric NYC tiles.
+A side-by-side comparison viewer for day/night versions of Isometric Los Angeles tiles.
 
 ## Quick Start
 
@@ -9,7 +9,7 @@ A side-by-side comparison viewer for day/night versions of Isometric NYC tiles.
 First, generate some dark mode tiles using the generation script:
 
 ```bash
-uv run python src/isometric_nyc/generation/generate_dark_mode.py \
+uv run python src/isometric_los_angeles/generation/generate_dark_mode.py \
   generations/v01 0 0 \
   --output-dir synthetic_data/datasets/dark_mode
 ```

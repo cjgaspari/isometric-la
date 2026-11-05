@@ -1,14 +1,14 @@
 [project]
-name = "isometric-nyc"
+name = "isometric-los-angeles"
 version = "0.1.0"
-description = "Generate isometric pixel art views of New York City using AI"
+description = "Generate isometric pixel art views of Los Angeles using AI"
 readme = "README.md"
 requires-python = ">=3.12"
 license = "MIT"
 authors = [
     { name = "Andy Coenen", email = "andrew.coenen@gmail.com" }
 ]
-keywords = ["isometric", "pixel-art", "nyc", "ai", "generative-art"]
+keywords = ["isometric", "pixel-art", "los-angeles", "ai", "generative-art"]
 dependencies = [
     "contextily>=1.7.0",
     "diffusers>=0.36.0",
@@ -42,8 +42,8 @@ dependencies = [
 ]
 
 [project.scripts]
-export-to-oxen = "isometric_nyc.oxen_sync.export_to_oxen:main"
-import-from-oxen = "isometric_nyc.oxen_sync.import_from_oxen:main"
+export-to-oxen = "isometric_los_angeles.oxen_sync.export_to_oxen:main"
+import-from-oxen = "isometric_los_angeles.oxen_sync.import_from_oxen:main"
 
 [tool.ruff]
 line-length = 88

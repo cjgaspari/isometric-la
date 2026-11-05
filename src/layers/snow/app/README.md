@@ -1,6 +1,6 @@
 # Snow Mode Demo
 
-A side-by-side comparison viewer for snow/blizzard versions of Isometric NYC tiles.
+A side-by-side comparison viewer for snow/blizzard versions of Isometric Los Angeles tiles.
 
 ## Quick Start
 
@@ -9,8 +9,8 @@ A side-by-side comparison viewer for snow/blizzard versions of Isometric NYC til
 First, generate some snow tiles using the generation script:
 
 ```bash
-uv run python src/isometric_nyc/generation/generate_layer_snow.py \
-  generations/nyc 0 0 \
+uv run python src/isometric_los_angeles/generation/generate_layer_snow.py \
+  generations/los-angeles 0 0 \
   --output-dir synthetic_data/datasets/snow
 ```
 

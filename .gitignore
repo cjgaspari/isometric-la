@@ -194,8 +194,8 @@ lora-weights
 # Generations directory
 generations/*
 !generations/README.md
-!generations/tiny-nyc/
-generations/tiny-nyc/*.db
+!generations/tiny-los-angeles/
+generations/tiny-los-angeles/*.db
 
 
 # Layers directory

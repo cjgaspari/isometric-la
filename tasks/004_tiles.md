@@ -2,7 +2,7 @@
 
 Next we're going to implement the remaining pieces to do step-by-step tile
 generation. The goal is to progressively march tile-by-tile to generate the
-entire map of NYC in the isometric pixel art style.
+entire map of Los Angeles in the isometric pixel art style.
 
 Each generation will be a 1024 x 1024 pixel square and will be guided by assets
 generated using the `export_views` python script. These two assets are:

@@ -1,4 +1,4 @@
-# Isometric NYC Viewer
+# Isometric Los Angeles Viewer
 
 A high-performance tiled map viewer for exploring isometric pixel art of New
 York City.

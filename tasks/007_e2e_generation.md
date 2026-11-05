@@ -1,7 +1,7 @@
-# Isometric NYC E2E Generation
+# Isometric Los Angeles E2E Generation
 
 OK we have all the pieces needed to generate a massive isometric pixel art map
-of NYC! We've fine-tuned a model that can generate pixel art from a 3D rendered
+of Los Angeles! We've fine-tuned a model that can generate pixel art from a 3D rendered
 tile, as well as "infill" from a template that has one or more quadrants from a
 neighboring tile.
 
@@ -53,7 +53,7 @@ isometric view centered on a centroid and with the camera azimuth, height, and
 elevation. Starting from the seed, we'll expand tiles outward in every direction
 until they reach the
 
-This process should follow the logic of `src/isometric_nyc/plan_tiles.py`, with
+This process should follow the logic of `src/isometric_los_angeles/plan_tiles.py`, with
 the following changes:
 
 Rather than storing tiles, we'll be storing "quadrants" - each tile is divided
@@ -79,7 +79,7 @@ Table: Quadrants
 The SQLite DB should be populated with ALL quadrants, but the `Render` and
 `Generation` columns should of course be empty.
 
-Let's first create a new directory `src/isometric_nyc/generation` and create
+Let's first create a new directory `src/isometric_los_angeles/generation` and create
 a new python script called `seed_tiles` (that follows the arg/param conventions
 of scripts such as `export_views.py`) that will take a single arg
 `generation_dir` that points at an empty directory containing a

@@ -31,7 +31,7 @@ Used `git-filter-repo` to scrub git history:
 - A backup branch `backup-before-cleanup-YYYYMMDDHHMMSS` was created before the operation
 - The `origin` remote was removed by `git-filter-repo` (standard behavior) - you'll need to re-add it:
   ```bash
-  git remote add origin https://github.com/cannoneyed/isometric-nyc.git
+  git remote add origin https://github.com/cannoneyed/isometric-los-angeles.git
   ```
 - Since history was rewritten, you'll need to force push:
   ```bash

@@ -65,7 +65,7 @@ export interface ViewState {
   zoom: number;
 }
 
-const VIEW_STATE_STORAGE_KEY = "isometric-nyc-view-state";
+const VIEW_STATE_STORAGE_KEY = "isometric-los-angeles-view-state";
 
 // Zoom constraints (log2 scale: 0 = 1:1 pixels, positive = zoom in, negative = zoom out)
 // Example: -2 = 0.25x (zoomed out), 0 = 1x, 2 = 4x (zoomed in)
@@ -435,7 +435,7 @@ function App() {
       />
 
       <header className="header">
-        <h1>Isometric NYC</h1>
+        <h1>Isometric Los Angeles</h1>
         <div className="header-actions">
           <button
             className="icon-button"
@@ -459,7 +459,7 @@ function App() {
             <Globe size={14} />
           </button>
           <a
-            href="https://cannoneyed.com/projects/isometric-nyc"
+            href="https://github.com/cjgaspari/isometric-la"
             target="_blank"
             rel="noopener noreferrer"
             className="icon-button"

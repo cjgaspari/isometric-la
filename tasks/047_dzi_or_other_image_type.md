@@ -81,7 +81,7 @@ image.dzsave("output", tile_size=512, suffix=".webp[Q=85]")
 ```
 
 **Files to create:**
-- `src/isometric_nyc/generation/export_dzi.py`
+- `src/isometric_los_angeles/generation/export_dzi.py`
 
 #### 1.2 Benchmark Performance
 
@@ -100,7 +100,7 @@ image.dzsave("output", tile_size=512, suffix=".webp[Q=85]")
 
 #### 2.1 Create DZI Export Script
 
-**File:** `src/isometric_nyc/generation/export_dzi.py`
+**File:** `src/isometric_los_angeles/generation/export_dzi.py`
 
 ```python
 # Pseudo-code structure
@@ -119,7 +119,7 @@ def export_dzi(db_path: str, output_dir: str, tile_size: int = 512):
 
 **Key Requirements:**
 - Preserve unified palette processing
-- Apply bounds clipping (alpha mask for NYC outline)
+- Apply bounds clipping (alpha mask for Los Angeles outline)
 - Support WebP output tiles (25-35% smaller than PNG)
 - Generate metadata JSON with `originX`, `originY`, zoom mapping
 
@@ -217,7 +217,7 @@ May need to update `WaterShaderOverlay.tsx` to match DZI URL pattern, or ensure 
 # wrangler.toml for R2 public bucket
 [[r2_buckets]]
 binding = "TILES"
-bucket_name = "isometric-nyc-tiles"
+bucket_name = "isometric-los-angeles-tiles"
 ```
 
 **CORS Headers (via R2 CORS rules or minimal Worker):**
@@ -248,9 +248,9 @@ Cache-Control: public, max-age=31536000, immutable
 
 ```bash
 # Upload DZI structure to R2
-rclone sync ./output_files r2:isometric-nyc-tiles/tiles_files/
-rclone copy ./tiles.dzi r2:isometric-nyc-tiles/
-rclone copy ./tiles_metadata.json r2:isometric-nyc-tiles/
+rclone sync ./output_files r2:isometric-los-angeles-tiles/tiles_files/
+rclone copy ./tiles.dzi r2:isometric-los-angeles-tiles/
+rclone copy ./tiles_metadata.json r2:isometric-los-angeles-tiles/
 ```
 
 **Estimated file count:** ~20,000 files (128×144 base + 4 zoom levels)
@@ -330,7 +330,7 @@ rclone copy ./tiles_metadata.json r2:isometric-nyc-tiles/
 
 | File | Purpose |
 |------|---------|
-| `src/isometric_nyc/generation/export_dzi.py` | DZI export script |
+| `src/isometric_los_angeles/generation/export_dzi.py` | DZI export script |
 | `tiles_metadata.json` | Custom metadata sidecar |
 
 ### Files to Modify

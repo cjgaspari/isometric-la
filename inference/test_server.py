@@ -5,7 +5,7 @@ Builds a template image from quadrants in the database and calls the Modal endpo
 
 Usage:
   uv run python inference/test_server.py \
-    --generation-dir generations/tiny-nyc \
+    --generation-dir generations/tiny-los-angeles \
     --quadrants "(0,0),(1,0)" \
     --source-layer generations \
     --endpoint https://your-workspace--qwen-image-edit-server-imageeditor-edit-b64.modal.run
@@ -223,7 +223,7 @@ def main():
   parser.add_argument(
     "--prompt",
     type=str,
-    default="Fill in the outlined section with the missing pixels corresponding to the <isometric nyc pixel art> style, removing the border and exactly following the shape/style/structure of the surrounding image (if present).",
+    default="Fill in the outlined section with the missing pixels corresponding to the <isometric los angeles pixel art> style, removing the border and exactly following the shape/style/structure of the surrounding image (if present).",
     help="Prompt for the model",
   )
   parser.add_argument(

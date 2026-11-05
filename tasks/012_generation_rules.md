@@ -1,7 +1,7 @@
 # Generation Rules
 
 **Status: ✅ COMPLETE** - Library created at
-`src/isometric_nyc/generation/generate_template.py`
+`src/isometric_los_angeles/generation/generate_template.py`
 
 ## Overview
 
@@ -84,7 +84,7 @@ of the generated pixels to the left/right.
 
 First, I want to create a library that formalizes these rules and creates a
 template image for generation - let's create a new script / library in
-src/isometric_nyc/generation called `generate_template.py` that extends the
+src/isometric_los_angeles/generation called `generate_template.py` that extends the
 logic in `generate_tile_omni.py`. It needs to create the template image with the
 selected quadrants filled with the corresponding "render" pixels and the
 remaining pixels from the "generated" pixels, and the rendered part outlined in
@@ -103,7 +103,7 @@ generate the correct infill templates and parse the corresponding generations.
 
 ## Implementation Summary
 
-Created `src/isometric_nyc/generation/generate_template.py` with:
+Created `src/isometric_los_angeles/generation/generate_template.py` with:
 
 ### Core Classes
 
@@ -139,8 +139,8 @@ The library correctly validates:
 Run tests with:
 
 ```bash
-uv run python src/isometric_nyc/generation/generate_template.py
-uv run python src/isometric_nyc/generation/generate_template.py --output-dir /tmp/tests
+uv run python src/isometric_los_angeles/generation/generate_template.py
+uv run python src/isometric_los_angeles/generation/generate_template.py --output-dir /tmp/tests
 ```
 
 ### Convenience Functions

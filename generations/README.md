@@ -1,6 +1,6 @@
 # Generations
 
-This directory contains the generations data for generated tile quadrants. Each project's generations are stored in its own subdir (e.g. `nyc`), with the actual data stored in a SQLite DB with the following schema:
+This directory contains the generations data for generated tile quadrants. Each project's generations are stored in its own subdir (e.g. `los-angeles`), with the actual data stored in a SQLite DB with the following schema:
 
 ## Tables
 

@@ -1,8 +1,8 @@
 // Worker URL for DZI tiles (adds caching headers to R2)
-const R2_TILES_URL = "https://isometric-nyc-tiles.cannoneyed.com";
+const R2_TILES_URL = "https://isometric-los-angeles-tiles.cannoneyed.com";
 
 // Default export directory name (subdirectory under public/dzi/)
-const DEFAULT_EXPORT_DIR = "tiny-nyc";
+const DEFAULT_EXPORT_DIR = "tiny-los-angeles";
 
 // Check URL parameters
 function getUrlParams(): URLSearchParams {
@@ -10,14 +10,14 @@ function getUrlParams(): URLSearchParams {
 }
 
 // Get the export directory name
-// Priority: USE_R2_NYC env var > MAP_ID env var > ?export= URL param > default
-// - USE_R2_NYC: fetches from R2 dzi/ directly (no map id subdir)
-// - MAP_ID: set via `MAP_ID=tiny-nyc bun run dev`
-// - ?export: use URL param like ?export=tiny-nyc
+// Priority: USE_R2_LOS_ANGELES env var > MAP_ID env var > ?export= URL param > default
+// - USE_R2_LOS_ANGELES: fetches from R2 dzi/ directly (no map id subdir)
+// - MAP_ID: set via `MAP_ID=tiny-los-angeles bun run dev`
+// - ?export: use URL param like ?export=tiny-los-angeles
 function getExportDir(): string {
-	// Check USE_R2_NYC first - uses dzi/ directly without map id subdir
-	if (__USE_R2_NYC__) {
-		console.log("📂 Using map: dzi (via USE_R2_NYC env var)");
+	// Check USE_R2_LOS_ANGELES first - uses dzi/ directly without map id subdir
+	if (__USE_R2_LOS_ANGELES__) {
+		console.log("📂 Using map: dzi (via USE_R2_LOS_ANGELES env var)");
 		return "dzi";
 	}
 
@@ -42,13 +42,13 @@ function getExportDir(): string {
 
 // Get the base URL for tiles
 // - In production: always use R2
-// - In dev: use local by default, or R2 if ?r2=true or LOCAL_R2=true or USE_R2_NYC=true
+// - In dev: use local by default, or R2 if ?r2=true or LOCAL_R2=true or USE_R2_LOS_ANGELES=true
 function getTilesBaseUrl(): string {
 	const params = getUrlParams();
 
-	// Check for USE_R2_NYC env var (fetches from R2 dzi/ directly)
-	if (__USE_R2_NYC__) {
-		console.log("📡 Using R2 tiles (via USE_R2_NYC env var)");
+	// Check for USE_R2_LOS_ANGELES env var (fetches from R2 dzi/ directly)
+	if (__USE_R2_LOS_ANGELES__) {
+		console.log("📡 Using R2 tiles (via USE_R2_LOS_ANGELES env var)");
 		return R2_TILES_URL;
 	}
 

@@ -171,7 +171,7 @@ function App() {
             <span className="emoji">🌙</span> Dark Mode Demo
           </h1>
           <p className="subtitle">
-            Isometric NYC • Tile ({coords.x}, {coords.y})
+            Isometric Los Angeles • Tile ({coords.x}, {coords.y})
           </p>
         </div>
         <nav className="header-nav">

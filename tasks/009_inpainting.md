@@ -48,10 +48,10 @@ Finally, we need to create a csv in with the following columns:
 | "inpainting/<image_name>.png | "generations/<image_number>.png" | <prompt> |
 
 Where the prompt is the string literal "Fill in the outlined section with the
-missing pixels corresponding to the <isometric nyc pixel art> style, removing
+missing pixels corresponding to the <isometric los angeles pixel art> style, removing
 the border and exactly following the shape/style/structure of the surrounding
 image.
 
 Create a script in
-src/isometric_nyc/synthetic_data/create_inpainting_examples.py to do all of
+src/isometric_los_angeles/synthetic_data/create_inpainting_examples.py to do all of
 this.

@@ -1,6 +1,6 @@
 # Web App
 
-I want to start building a web application for the isometric pixel art NYC map -
+I want to start building a web application for the isometric pixel art Los Angeles map -
 let's build it out in an app dir in the root directory. We'll need to build it
 with the following stack:
 
@@ -58,8 +58,8 @@ image processing. It is fast and memory-efficient.
 
 ```bash
 # Generate standard Google-style tiles layout
-vips dzsave massive_nyc_color.png ./tiles_color --layout google --suffix .png --tile-size 512
-vips dzsave massive_nyc_normal.png ./tiles_normal --layout google --suffix .png --tile-size 512
+vips dzsave massive_los_angeles_color.png ./tiles_color --layout google --suffix .png --tile-size 512
+vips dzsave massive_los_angeles_normal.png ./tiles_normal --layout google --suffix .png --tile-size 512
 ```
 
 - `--layout google`: Produces a standard `z/x/y.png` directory structure.
@@ -226,7 +226,7 @@ city, **Zoom 1** is 4 images, etc.
 command I recommended previously:
 
 ```bash
-vips dzsave massive_nyc.png ./tiles --layout google
+vips dzsave massive_los_angeles.png ./tiles --layout google
 ```
 
 It will automatically create folders `0/`, `1/`, `2/` ... all the way down to

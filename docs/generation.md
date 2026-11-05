@@ -2,7 +2,7 @@
 
 The app uses a number of bespoke tools for managing generation. The main tool is a web app that contains a number of utilities that allow you to generate new tiles on demand, using a variety of models/approaches.
 
-<Video src="https://cannoneyed.com/img/projects/isometric-nyc/gen_app_screencast.webm" />
+<Video src="https://cannoneyed.com/img/projects/isometric-los-angeles/gen_app_screencast.webm" />
 
 ## Setup
 
@@ -15,7 +15,7 @@ cd src/web_render && bun i
 Then, you can run the app. By default, it will use the `MAP_ID` env variable to determine which generations dir to use.
 
 ```bash
-uv run python src/isometric_nyc/generation/app.py
+uv run python src/isometric_los_angeles/generation/app.py
 ```
 
 ## Features
@@ -45,7 +45,7 @@ uv run python src/isometric_nyc/generation/app.py
 
 In order to generate tiles in the app, select up to 4 quadrants using the select tool and click "Generate". Generation has a number of rules to prevent seams from forming between tile quadrants:
 
-![a sample of generation rules](https://cannoneyed.com/projects/isometric-nyc/img/projects/isometric-nyc/gen_rules.png)
+![a sample of generation rules](https://cannoneyed.com/projects/isometric-los-angeles/img/projects/isometric-los-angeles/gen_rules.png)
 
 ## 2x2 generation
 A 2x2 generation is only legal if the 2x2 tile does not touch any previously generated quadrants

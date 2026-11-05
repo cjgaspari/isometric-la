@@ -1,6 +1,6 @@
 # Speed up pmtiles
 
-The process for exporting the pmtiles (src/isometric_nyc/generation/export_pmtiles.py) is very slow - likely because it's in python. Please come up with a plan for speeding this up - if we can make it faster while still using python, great, otherwise think about doing the work in a faster language e.g. Go
+The process for exporting the pmtiles (src/isometric_los_angeles/generation/export_pmtiles.py) is very slow - likely because it's in python. Please come up with a plan for speeding this up - if we can make it faster while still using python, great, otherwise think about doing the work in a faster language e.g. Go
 
 Please think very hard about this, then write the plan below:
 

@@ -6,7 +6,7 @@ Serves tile images from SQLite database and mask images from disk.
 Usage:
   uv run python src/water_shader_demo/server.py \
     --mask_dir synthetic_data/datasets/water_masks/generations \
-    --generations_dir generations/nyc
+    --generations_dir generations/los-angeles
 
   # Then open: http://localhost:5001/?x=0&y=0
 """
@@ -294,7 +294,7 @@ def main():
 Examples:
   # Start server with mask and generation directories:
   %(prog)s --mask_dir synthetic_data/datasets/water_masks/generations \\
-           --generations_dir generations/nyc
+           --generations_dir generations/los-angeles
 
   # Then open: http://localhost:5001/?x=0&y=0
 """,

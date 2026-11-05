@@ -1,6 +1,6 @@
 # Water shader generation
 
-We need to automatically generate in a step-by-step manner the water shader mask tiles for all water+shore quadrants in the quadrants db. Using the script defined in src/isometric_nyc/generation/detect_water_tiles.py, we need to be able to do two things:
+We need to automatically generate in a step-by-step manner the water shader mask tiles for all water+shore quadrants in the quadrants db. Using the script defined in src/isometric_los_angeles/generation/detect_water_tiles.py, we need to be able to do two things:
 
 ## Part 1
 
@@ -12,7 +12,7 @@ We need to automatically generate in a step-by-step manner the water shader mask
 
 ## Part 2 - Manual water mask generation
 
-We need to modify the src/isometric_nyc/generation/app.py to be able to generate water mask tiles - we need to add a new entry key "is_water_mask" in the app_config.json that, if that model is used to generate, will save the generated output quadrant data to the `water_mask` column in the generation db.
+We need to modify the src/isometric_los_angeles/generation/app.py to be able to generate water mask tiles - we need to add a new entry key "is_water_mask" in the app_config.json that, if that model is used to generate, will save the generated output quadrant data to the `water_mask` column in the generation db.
 
 
 ## Part 3 - automated water mask generation

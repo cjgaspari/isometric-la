@@ -1,8 +1,8 @@
 # Water Shader
 
-The next phase of the isometric NYC pixel art map project is implementing a
+The next phase of the isometric los angeles pixel art map project is implementing a
 water shader on the water tiles in the final tile viewer web app at
-src/isometric_nyc/app.
+src/isometric_los_angeles/app.
 
 Using the idea in 021_water_shader.md, we'll be using a blurred distance mask to
 power the shader. We're going to split this work into a few steps:

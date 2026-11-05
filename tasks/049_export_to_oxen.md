@@ -40,9 +40,9 @@ uv add oxenai
 
 ### File Structure
 
-Create new module at `src/isometric_nyc/oxen_sync/`:
+Create new module at `src/isometric_los_angeles/oxen_sync/`:
 ```
-src/isometric_nyc/oxen_sync/
+src/isometric_los_angeles/oxen_sync/
 ├── __init__.py
 ├── export_to_oxen.py    # Export command
 ├── import_from_oxen.py  # Import command
@@ -75,7 +75,7 @@ renders/0012_0045_a1b2c3d4.png,quadrants/0012_0045_e5f6g7h8.png,12,45,a1b2c3d4,e
 
 **CLI Interface:**
 ```bash
-uv run python -m isometric_nyc.oxen_sync.export_to_oxen \
+uv run python -m isometric_los_angeles.oxen_sync.export_to_oxen \
     --generations_dir v01 \
     --oxen_dataset namespace/dataset-name \
     [--branch main]
@@ -172,7 +172,7 @@ def export_to_oxen(generations_dir: str, oxen_dataset: str, branch: str = "main"
 
 **CLI Interface:**
 ```bash
-uv run python -m isometric_nyc.oxen_sync.import_from_oxen \
+uv run python -m isometric_los_angeles.oxen_sync.import_from_oxen \
     --generations_dir v01 \
     --oxen_dataset namespace/dataset-name \
     [--branch main]
@@ -239,8 +239,8 @@ def import_from_oxen(generations_dir: str, oxen_dataset: str, branch: str = "mai
 Add script entry points:
 ```toml
 [project.scripts]
-export_to_oxen = "isometric_nyc.oxen_sync.export_to_oxen:main"
-import_from_oxen = "isometric_nyc.oxen_sync.import_from_oxen:main"
+export_to_oxen = "isometric_los_angeles.oxen_sync.export_to_oxen:main"
+import_from_oxen = "isometric_los_angeles.oxen_sync.import_from_oxen:main"
 ```
 
 ### Implementation Steps
@@ -287,11 +287,11 @@ Environment variables:
 
 ```bash
 # Initial export
-uv run export_to_oxen --generations_dir v01 --oxen_dataset andycoenen/isometric-nyc-tiles
+uv run export_to_oxen --generations_dir v01 --oxen_dataset andycoenen/isometric-los-angeles-tiles
 
 # After generating more tiles, sync again (only uploads changes)
-uv run export_to_oxen --generations_dir v01 --oxen_dataset andycoenen/isometric-nyc-tiles
+uv run export_to_oxen --generations_dir v01 --oxen_dataset andycoenen/isometric-los-angeles-tiles
 
 # Import to a fresh machine
-uv run import_from_oxen --generations_dir v01 --oxen_dataset andycoenen/isometric-nyc-tiles
+uv run import_from_oxen --generations_dir v01 --oxen_dataset andycoenen/isometric-los-angeles-tiles
 ```

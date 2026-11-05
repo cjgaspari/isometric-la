@@ -1,7 +1,7 @@
 # pmtiles file format
 
 Can we refactor our tile export process in
-src/isometric_nyc/generation/export_tiles_for_app.py and the web app tile
+src/isometric_los_angeles/generation/export_tiles_for_app.py and the web app tile
 viewer in src/app to use pmtiles file format? We need to account for our zoom
 levels and postprocessing
 
@@ -11,7 +11,7 @@ levels and postprocessing
 
 ### Python Export (export_pmtiles.py)
 
-New script `src/isometric_nyc/generation/export_pmtiles.py` that:
+New script `src/isometric_los_angeles/generation/export_pmtiles.py` that:
 
 - Reads tiles from the quadrants.db SQLite database
 - Applies the same postprocessing (pixelation, color quantization) as the
@@ -23,13 +23,13 @@ Usage:
 
 ```bash
 # Export all tiles to PMTiles
-uv run python src/isometric_nyc/generation/export_pmtiles.py generations/v01
+uv run python src/isometric_los_angeles/generation/export_pmtiles.py generations/v01
 
 # Export without postprocessing
-uv run python src/isometric_nyc/generation/export_pmtiles.py generations/v01 --no-postprocess
+uv run python src/isometric_los_angeles/generation/export_pmtiles.py generations/v01 --no-postprocess
 
 # Custom output path
-uv run python src/isometric_nyc/generation/export_pmtiles.py generations/v01 -o my-tiles.pmtiles
+uv run python src/isometric_los_angeles/generation/export_pmtiles.py generations/v01 -o my-tiles.pmtiles
 ```
 
 ### Web App (React/OpenSeadragon)

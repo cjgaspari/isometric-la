@@ -11,7 +11,7 @@ all cases correctly, including:
 - Various rectangle sizes and configurations
 """
 
-from isometric_nyc.generation.make_rectangle_plan import (
+from isometric_los_angeles.generation.make_rectangle_plan import (
   GenerationStep,
   Point,
   RectanglePlan,

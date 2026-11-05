@@ -1,6 +1,6 @@
-# Contributing to Isometric NYC
+# Contributing to Isometric Los Angeles
 
-Thank you for your interest in contributing to Isometric NYC!
+Thank you for your interest in contributing to Isometric Los Angeles!
 
 ## Getting Started
 

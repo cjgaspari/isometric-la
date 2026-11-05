@@ -34,9 +34,9 @@ enqueued in the system.
 
 Implemented in:
 
-- `src/isometric_nyc/generation/make_rectangle_plan.py` - Core algorithm
+- `src/isometric_los_angeles/generation/make_rectangle_plan.py` - Core algorithm
 - `tests/test_make_rectangle_plan.py` - Comprehensive test suite (71 tests)
-- `src/isometric_nyc/generation/app.py` - API route
+- `src/isometric_los_angeles/generation/app.py` - API route
   `/api/generate-rectangle`
 
 ### Algorithm

@@ -1,7 +1,7 @@
 # Oxen API Inference
 
-We're now going to create a copy of the @src/isometric_nyc/generate_tile_v2.py
-script in src/isometric_nyc that uses a custom fine-tuned oxen.ai model to
+We're now going to create a copy of the @src/isometric_los_angeles/generate_tile_v2.py
+script in src/isometric_los_angeles that uses a custom fine-tuned oxen.ai model to
 generate an `infill` image
 
 First, use the same logic to generate a "masked" image if the neighboring tile
@@ -23,7 +23,7 @@ curl -X POST \
 -d '{
   "model": "cannoneyed-modern-salmon-unicorn",
   "input_image": "https://hub.oxen.ai/api/repos/ox/Oxen-Character-Simple-Vector-Graphic/file/main/images/reference/bloxy_white_bg.png",
-  "prompt": "Convert the right side of the image to <isometric nyc pixel art> in precisely the style of the left side.",
+  "prompt": "Convert the right side of the image to <isometric los angeles pixel art> in precisely the style of the left side.",
   "num_inference_steps": 28
 }' https://hub.oxen.ai/api/images/edit
 ```
@@ -38,12 +38,12 @@ download the image to `generation.png` in the tile_dir.
 
 ## Implementation Complete ✅
 
-The script has been created at `src/isometric_nyc/generate_tile_oxen.py`
+The script has been created at `src/isometric_los_angeles/generate_tile_oxen.py`
 
 ### Usage
 
 ```bash
-uv run python src/isometric_nyc/generate_tile_oxen.py <tile_dir> --bucket <bucket_name>
+uv run python src/isometric_los_angeles/generate_tile_oxen.py <tile_dir> --bucket <bucket_name>
 
 # Or using the CLI entry point:
 uv run generate-tile-oxen <tile_dir> --bucket <bucket_name>
@@ -57,8 +57,8 @@ To upload images to GCS and make them publicly accessible, follow these steps:
 
 ```bash
 # Install gcloud CLI if needed: https://cloud.google.com/sdk/docs/install
-gcloud projects create isometric-nyc --name="Isometric NYC"
-gcloud config set project isometric-nyc
+gcloud projects create isometric-los-angeles --name="Isometric Los Angeles"
+gcloud config set project isometric-los-angeles
 ```
 
 #### 2. Enable the Cloud Storage API
@@ -71,10 +71,10 @@ gcloud services enable storage.googleapis.com
 
 ```bash
 # Create a bucket (bucket names must be globally unique)
-gcloud storage buckets create gs://isometric-nyc-infills --location=us-central1
+gcloud storage buckets create gs://isometric-los-angeles-infills --location=us-central1
 
 # Make the bucket publicly readable
-gcloud storage buckets add-iam-policy-binding gs://isometric-nyc-infills \
+gcloud storage buckets add-iam-policy-binding gs://isometric-los-angeles-infills \
   --member=allUsers \
   --role=roles/storage.objectViewer
 ```
@@ -91,17 +91,17 @@ gcloud auth application-default login
 
 ```bash
 # Create a service account
-gcloud iam service-accounts create isometric-nyc-uploader \
-  --display-name="Isometric NYC Image Uploader"
+gcloud iam service-accounts create isometric-los-angeles-uploader \
+  --display-name="Isometric Los Angeles Image Uploader"
 
 # Grant storage permissions
-gcloud projects add-iam-policy-binding isometric-nyc \
-  --member="serviceAccount:isometric-nyc-uploader@isometric-nyc.iam.gserviceaccount.com" \
+gcloud projects add-iam-policy-binding isometric-los-angeles \
+  --member="serviceAccount:isometric-los-angeles-uploader@isometric-los-angeles.iam.gserviceaccount.com" \
   --role="roles/storage.objectCreator"
 
 # Create and download a key file
 gcloud iam service-accounts keys create ./gcs-key.json \
-  --iam-account=isometric-nyc-uploader@isometric-nyc.iam.gserviceaccount.com
+  --iam-account=isometric-los-angeles-uploader@isometric-los-angeles.iam.gserviceaccount.com
 
 # Set the environment variable in your .env file:
 # GOOGLE_APPLICATION_CREDENTIALS=/path/to/gcs-key.json

@@ -38,7 +38,7 @@ def _(gemini_api_key, genai):
 
 @app.cell
 def _(os):
-    tile_dir = "/Users/andycoenen/cannoneyed/isometric-nyc/synthetic_data/tiles/v02"
+    tile_dir = "/Users/andycoenen/cannoneyed/isometric-los-angeles/synthetic_data/tiles/v02"
     references_dir = os.path.join(os.getcwd() , "references")
     return (tile_dir,)
 
@@ -58,7 +58,7 @@ def _(Image, client, mo, os, tile_dir, types):
         contents.append(input_image_ref)
 
         generation_prompt = f"""
-    You are an advanced image generation agent tasked with using the information in the provided images to generate an isometric pixel art image of a tile of New York City, in the style of classic city builder games such as SimCity 3000.
+    You are an advanced image generation agent tasked with using the information in the provided images to generate an isometric pixel art image of a tile of Los Angeles, in the style of classic city builder games such as SimCity 3000.
 
     Generation Instructions:
     The upper left quadrant is a whitebox render of the buildings, and the upper right quadrant is a 3D render of the buildings using the Google Maps 3D Tiles API. Your task is to finish the masked pixel art version of the tile in the lower left quadrant - fill in all missing pixels to complete the image based on the templates above. ENSURE THAT THE GENERATED IMAGE EXACTLY AND ONLY FILLS THE LOWER RIGHT QUADRANT OF THE IMAGE - DO NOT MODIFY THE OTHER QUADRANTS. Use the architectural details, building shapes, and layout from the upper quadrants to inform your pixel art generation. The final image should be a seamless blend of the provided templates, maintaining the isometric pixel art style throughout.
