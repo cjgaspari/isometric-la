@@ -1,6 +1,6 @@
 # Strip plan
 
-Create a script in `src/isometric_nyc/generation` called
+Create a script in `src/isometric_los_angeles/generation` called
 `make_strip_plan.py` that takes a few parameters:
 
 - generation_dir - the directory containing the generation db

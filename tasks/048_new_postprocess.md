@@ -1,6 +1,6 @@
 # New Postprocess
 
-I want to update the postprocessing script in src/isometric_nyc/generation/export_dzi.py to use the logic in https://jenissimo.itch.io/unfaker - it has settings to generate a "fixed grid" pixel art from a raw image. First, can you figure out how to add this functionality to the script? These are the parameters I'm using:
+I want to update the postprocessing script in src/isometric_los_angeles/generation/export_dzi.py to use the logic in https://jenissimo.itch.io/unfaker - it has settings to generate a "fixed grid" pixel art from a raw image. First, can you figure out how to add this functionality to the script? These are the parameters I'm using:
 
 
 Auto-detect Colors
@@ -60,7 +60,7 @@ Based on your parameters, here's what each setting does:
 
 ### Implementation Plan
 
-#### Step 1: Create `src/isometric_nyc/generation/pixel_art_postprocess.py`
+#### Step 1: Create `src/isometric_los_angeles/generation/pixel_art_postprocess.py`
 
 A new Python module containing:
 
@@ -86,7 +86,7 @@ def quantize_to_palette(image: Image, palette: list[tuple[int,int,int]]) -> Imag
     """Map each pixel to the nearest color in the fixed palette."""
 ```
 
-#### Step 2: Create `src/isometric_nyc/generation/build_city_palette.py`
+#### Step 2: Create `src/isometric_los_angeles/generation/build_city_palette.py`
 
 A script to precompute the city-wide palette:
 
@@ -152,7 +152,7 @@ Alternatively, we could add `unfake` as a dependency (`uv add unfake`) and use i
 
 1. **Build palette once:**
    ```bash
-   uv run python src/isometric_nyc/generation/build_city_palette.py \
+   uv run python src/isometric_los_angeles/generation/build_city_palette.py \
        generations/v01 \
        --sample-quadrants 100 \
        --max-colors 128 \
@@ -161,7 +161,7 @@ Alternatively, we could add `unfake` as a dependency (`uv add unfake`) and use i
 
 2. **Export with unfake processing:**
    ```bash
-   uv run python src/isometric_nyc/generation/export_dzi.py \
+   uv run python src/isometric_los_angeles/generation/export_dzi.py \
        generations/v01 \
        --unfake \
        --palette-file palettes/city_v01.json \
@@ -173,7 +173,7 @@ Alternatively, we could add `unfake` as a dependency (`uv add unfake`) and use i
 ### File Structure
 
 ```
-src/isometric_nyc/generation/
+src/isometric_los_angeles/generation/
 ├── export_dzi.py                 # (modified)
 ├── pixel_art_postprocess.py      # NEW - core algorithms
 ├── build_city_palette.py         # NEW - palette extraction
@@ -193,12 +193,12 @@ src/isometric_nyc/generation/
 
 ### Files Modified/Created
 
-1. **`src/isometric_nyc/generation/pixel_art_postprocess.py`** (NEW)
+1. **`src/isometric_los_angeles/generation/pixel_art_postprocess.py`** (NEW)
    - `process_tile_unfake()` - Wraps unfake library with our parameters
    - `extract_palette_from_image()` - Extracts RGB colors from palette image
    - `postprocess_image_unfake()` - High-level interface matching existing API
 
-2. **`src/isometric_nyc/generation/export_dzi.py`** (MODIFIED)
+2. **`src/isometric_los_angeles/generation/export_dzi.py`** (MODIFIED)
    - Added `--unfake` flag to enable pixel art postprocessing
    - Added `--pixel-size`, `--unfake-colors`, `--dominant-threshold` options
    - Added `--morph-cleanup`, `--jaggy-cleanup`, `--alpha-threshold` options
@@ -210,15 +210,15 @@ src/isometric_nyc/generation/
 
 ```bash
 # Basic unfake export to default directory (public/dzi/)
-uv run python src/isometric_nyc/generation/export_dzi.py \
+uv run python src/isometric_los_angeles/generation/export_dzi.py \
     generations/v01 --unfake
 
 # Export to custom directory (public/unfake_v1/)
-uv run python src/isometric_nyc/generation/export_dzi.py \
+uv run python src/isometric_los_angeles/generation/export_dzi.py \
     generations/v01 --unfake --export-dir unfake_v1
 
 # With custom settings
-uv run python src/isometric_nyc/generation/export_dzi.py \
+uv run python src/isometric_los_angeles/generation/export_dzi.py \
     generations/v01 \
     --unfake \
     --export-dir unfake_custom \
@@ -229,13 +229,13 @@ uv run python src/isometric_nyc/generation/export_dzi.py \
     --jaggy-cleanup
 
 # With existing palette file
-uv run python src/isometric_nyc/generation/export_dzi.py \
+uv run python src/isometric_los_angeles/generation/export_dzi.py \
     generations/v01 \
     --unfake \
     --palette palettes/city_v01.png
 
 # Test mode (20x20 subset, exports to dzi_test/)
-uv run python src/isometric_nyc/generation/export_dzi.py \
+uv run python src/isometric_los_angeles/generation/export_dzi.py \
     generations/v01 --unfake --test
 ```
 

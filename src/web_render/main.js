@@ -56,7 +56,7 @@ let cameraInitialized = false;
 // Also, whitebox.py calculates positions relative to Z=0.
 // However, buildings have height, and we probably want to look at the ground (Z=0).
 // But wait! whitebox.py detected ground elevation:
-// "Detected ground elevation: 10.00m" (typically around 10-15m for NYC)
+// "Detected ground elevation: 10.00m" (typically around 10-15m for Los Angeles)
 // And then it textures the ground at calculated_ground_z.
 // But the camera focal point is (0,0,0).
 // The geometry in whitebox.py is shifted:
@@ -66,7 +66,7 @@ let cameraInitialized = false;
 
 // In 3D Tiles (Google), the tiles are positioned on the WGS84 ellipsoid.
 // When we ask for a frame at height=0, we get the ellipsoid surface.
-// NYC ground level is indeed around 10-30m above the ellipsoid in some places,
+// Los Angeles ground level is indeed around 10-30m above the ellipsoid in some places,
 // but Google 3D tiles usually match the ellipsoid roughly or have their own geoid.
 
 // If whitebox.py is rendering geometry where Z=0 is "arbitrary zero", but actual geometry is at Z=10,
@@ -107,7 +107,7 @@ let cameraInitialized = false;
 // Let's try adjusting the target height to see if it aligns better.
 // If we look at 15m, the camera moves up, and the scene moves DOWN in the frame.
 // If the web view is too high, we need to look HIGHER (larger Z).
-const TARGET_HEIGHT = -31.3; // Geoid height for NYC (approx -31.3m)
+const TARGET_HEIGHT = -31.3; // Geoid height for Los Angeles (approx -31.3m)
 
 init();
 animate();
@@ -339,7 +339,7 @@ function addUI() {
     z-index: 1000;
   `;
   info.innerHTML = `
-    <strong>Isometric NYC - Times Square</strong><br>
+    <strong>Isometric Los Angeles - Times Square</strong><br>
     <br>
     Scroll: Zoom<br>
     Left-drag: Rotate<br>

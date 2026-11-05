@@ -1,17 +1,17 @@
 ### Debug & bounds map
 
 The `debug_map.py` script generates a visualization showing generation progress
-by overlaying generated quadrants on a real map of NYC.
+by overlaying generated quadrants on a real map of Los Angeles.
 
 ```bash
 # Generate debug map for the default generation directory
-uv run python src/isometric_nyc/generation/debug_map.py
+uv run python src/isometric_los_angeles/generation/debug_map.py
 
 # Generate for a specific generation directory
-uv run python src/isometric_nyc/generation/debug_map.py generations/nyc
+uv run python src/isometric_los_angeles/generation/debug_map.py generations/los-angeles
 
 # Custom output path
-uv run python src/isometric_nyc/generation/debug_map.py generations/nyc -o ./my_debug_map.png
+uv run python src/isometric_los_angeles/generation/debug_map.py generations/los-angeles -o ./my_debug_map.png
 ```
 
 **Features:**
@@ -33,20 +33,20 @@ defining custom generation boundaries.
 
 ```bash
 # Create new bounds
-uv run python src/isometric_nyc/generation/create_bounds.py generations/nyc
+uv run python src/isometric_los_angeles/generation/create_bounds.py generations/los-angeles
 
 # Edit existing bounds file
-uv run python src/isometric_nyc/generation/create_bounds.py generations/nyc --load bounds/my-region.json
+uv run python src/isometric_los_angeles/generation/create_bounds.py generations/los-angeles --load bounds/my-region.json
 
 # Custom port
-uv run python src/isometric_nyc/generation/create_bounds.py generations/nyc --port 8888
+uv run python src/isometric_los_angeles/generation/create_bounds.py generations/los-angeles --port 8888
 ```
 
 **Features:**
 
 - Interactive polygon editor on a Leaflet map
-- View generated and pending tiles overlaid on real NYC geography
-- NYC boundary displayed by default for reference
+- View generated and pending tiles overlaid on real Los Angeles geography
+- Los Angeles boundary displayed by default for reference
 - Drag vertices to reshape the boundary
 - Double-click on an edge to add a new vertex
 - Double-click on a vertex to delete it (minimum 3 vertices)
@@ -70,16 +70,16 @@ Both `debug_map.py` and `app.py` support custom boundary files:
 
 ```bash
 # Debug map with custom bounds
-uv run python src/isometric_nyc/generation/debug_map.py generations/nyc --bounds bounds/my-region.json
+uv run python src/isometric_los_angeles/generation/debug_map.py generations/los-angeles --bounds bounds/my-region.json
 
 # Generation app with custom bounds
-uv run python src/isometric_nyc/generation/app.py generations/nyc --bounds bounds/my-region.json
+uv run python src/isometric_los_angeles/generation/app.py generations/los-angeles --bounds bounds/my-region.json
 ```
 
-Boundary files are stored in `src/isometric_nyc/generation/bounds/`:
+Boundary files are stored in `src/isometric_los_angeles/generation/bounds/`:
 
 ```
 bounds/
-├── nyc.json          # Default NYC borough boundaries
+├── los-angeles.json          # Default Los Angeles borough boundaries
 └── my-region.json    # Custom region (created with bounds editor)
 ```

@@ -10,7 +10,7 @@ We need to automatically generate in a step-by-step manner the dark mode quadran
 
 ## Part 2 - Manual dark mode generation
 
-We need to modify the src/isometric_nyc/generation/app.py to be able to generate dark mode tiles - we need to add a new entry key "is_dark_mode" in the app_config.json that, if that model is used to generate, will save the generated output quadrant data to the `dark_mode` column in the generation db.
+We need to modify the src/isometric_los_angeles/generation/app.py to be able to generate dark mode tiles - we need to add a new entry key "is_dark_mode" in the app_config.json that, if that model is used to generate, will save the generated output quadrant data to the `dark_mode` column in the generation db.
 
 
 ## Part 3 - automated dark mode generation

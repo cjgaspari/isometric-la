@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Deployment script for isometric-nyc web app.
+Deployment script for isometric-los-angeles web app.
 
 This script handles:
 1. Building the static web app (JS/HTML/CSS)
@@ -27,7 +27,7 @@ GITHUB_PAGES_BRANCH = "gh-pages"
 GITHUB_PAGES_REMOTE = "origin"
 
 # Cloudflare R2 configuration
-R2_BUCKET_NAME = "isometric-nyc"
+R2_BUCKET_NAME = "isometric-los-angeles"
 
 # Files to skip during deployment
 SKIP_FILES = {".DS_Store", "Thumbs.db", ".gitkeep", ".gitignore"}
@@ -354,7 +354,7 @@ def upload_to_r2(export_dir: str = "dzi", dry_run: bool = False) -> bool:
   if not export_path.exists():
     print(f"  ❌ Error: Export directory not found: {export_path}")
     print("  Run the DZI export first:")
-    print(f"    uv run python src/isometric_nyc/generation/export_dzi.py generations/nyc --export-dir {export_dir}")
+    print(f"    uv run python src/isometric_los_angeles/generation/export_dzi.py generations/los-angeles --export-dir {export_dir}")
     return False
 
   if not dzi_file.exists():
@@ -418,7 +418,7 @@ def upload_to_r2(export_dir: str = "dzi", dry_run: bool = False) -> bool:
 
   if success:
     print("  ✅ R2 upload complete!")
-    print(f"  🔗 DZI tiles available at: https://isometric-nyc-tiles.cannoneyed.com/{export_dir}/")
+    print(f"  🔗 DZI tiles available at: https://isometric-los-angeles-tiles.cannoneyed.com/{export_dir}/")
     print(f"     - {export_dir}/tiles.dzi")
     print(f"     - {export_dir}/metadata.json")
     print(f"     - {export_dir}/tiles_files/")
@@ -431,7 +431,7 @@ def upload_to_r2(export_dir: str = "dzi", dry_run: bool = False) -> bool:
 def main() -> int:
   """Main entry point."""
   parser = argparse.ArgumentParser(
-    description="Deploy isometric-nyc web app",
+    description="Deploy isometric-los-angeles web app",
     formatter_class=argparse.RawDescriptionHelpFormatter,
     epilog="""
 Prerequisites:
@@ -456,7 +456,7 @@ Tile Format:
 
   Generate DZI tiles with:
     DYLD_LIBRARY_PATH=/opt/homebrew/lib uv run python \\
-      src/isometric_nyc/generation/export_dzi.py generations/nyc
+      src/isometric_los_angeles/generation/export_dzi.py generations/los-angeles
 
 Examples:
   # Build only
@@ -519,7 +519,7 @@ Examples:
     parser.print_help()
     return 0
 
-  print("🚀 Isometric NYC Deployment")
+  print("🚀 Isometric Los Angeles Deployment")
   print("=" * 40)
 
   success = True

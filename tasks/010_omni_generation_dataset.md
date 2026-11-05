@@ -28,7 +28,7 @@ Full - 20% Quadrant - 20% Half - 20% Middle - 15% Rectangle strips - 10%
 Rectangle infills - 15%
 
 Base the script to generate the data on
-`src/isometric_nyc/synthetic_data/create_inpainting_examples.py`. Use the
+`src/isometric_los_angeles/synthetic_data/create_inpainting_examples.py`. Use the
 render/generation images in `synthetic_data/datasets/v04` and create a directory
 called `omni`.
 
@@ -37,7 +37,7 @@ border that's on top of the image and does not displace any pixels.
 
 Make sure you also generate a training data csv with the prompt "Fill in the
 outlined section with the missing pixels corresponding to the
-<isometric nyc pixel art> style, removing the border and exactly following the
+<isometric los angeles pixel art> style, removing the border and exactly following the
 shape/style/structure of the surrounding image (if present)."
 
 Also create a small test set in the `test` directory of each of the variants

@@ -1,14 +1,14 @@
 ## Simplest Generation
 
-We will implement a system to generate isometric NYC buildings by first gathering the necessary data.
+We will implement a system to generate isometric Los Angeles buildings by first gathering the necessary data.
 
 ### Plan
 
 1.  **Data Gathering Function**:
     *   Input: Address string.
     *   **Geocoding**: Convert address to coordinates (lat/lng).
-    *   **NYC OpenData**:
-        *   Dataset: Building Footprints (Socrata ID: `5zhs-2jue`).
+    *   **Los Angeles Open Data**:
+        *   Dataset: Building Footprints via [Los Angeles Geohub](https://geohub.lacity.org/datasets/813fcefde1f64b209103107b26a8909f_0).
         *   Query: Find building footprint intersecting the coordinates.
         *   Fields: `the_geom` (footprint), `heightroof` (roof height).
     *   **Google Maps**:
@@ -28,10 +28,10 @@ We will implement a system to generate isometric NYC buildings by first gatherin
 
 3.  **Implementation Steps**:
     *   Install dependencies: `sodapy`, `googlemaps`, `pydantic`.
-    *   Create `src/isometric_nyc/data/` module for API clients and DB access.
-    *   Create `src/isometric_nyc/models/` for data structures.
+    *   Create `src/isometric_los_angeles/data/` module for API clients and DB access.
+    *   Create `src/isometric_los_angeles/models/` for data structures.
     *   Update `main.py` to orchestrate the process.
 
 ### Requirements
 *   `GOOGLE_MAPS_API_KEY` environment variable.
-*   Optional: `NYC_OPENDATA_APP_TOKEN` for higher rate limits.
+*   Optional: `LOS_ANGELES_OPENDATA_APP_TOKEN` for higher rate limits.

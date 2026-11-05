@@ -14,7 +14,7 @@ Download LoRA adapter weights from Oxen. Each model has a revision hash and mode
 
 ```bash
 mkdir -p lora-weights && cd lora-weights
-oxen download --revision 55b9eaff9e93ceae2549c85ba2f10b4f cannoneyed/isometric-nyc-v02 models/cannoneyed-dark-copper-flea
+oxen download --revision 55b9eaff9e93ceae2549c85ba2f10b4f cannoneyed/isometric-los-angeles-v02 models/cannoneyed-dark-copper-flea
 cd ..
 ```
 
@@ -132,10 +132,10 @@ Use `test_server.py` to build a template from quadrants in your generation datab
 
 ```bash
 uv run python inference/test_server.py \
-  --generation-dir generations/nyc \
+  --generation-dir generations/los-angeles \
   --quadrants "(0,0),(1,0),(0,1),(1,1)" \
   --source-layer renders \
-  --prompt "Fill in the outlined section with the missing pixels corresponding to the <isometric nyc pixel art> style, removing the border and exactly following the shape/style/structure of the surrounding image (if present)." \
+  --prompt "Fill in the outlined section with the missing pixels corresponding to the <isometric los angeles pixel art> style, removing the border and exactly following the shape/style/structure of the surrounding image (if present)." \
   --endpoint https://your-workspace--qwen-image-edit-server-imageeditor-edit-b64.modal.run
 ```
 

@@ -1,4 +1,4 @@
-# isometric.nyc web app
+# isometric-los-angeles web app
 
 A high-performance tiled map viewer for exploring the isometric pixel art map.
 
@@ -80,23 +80,23 @@ uv sync
 ```bash
 # Export all tiles to DZI format (WebP, with postprocessing)
 DYLD_LIBRARY_PATH=/opt/homebrew/lib uv run python \
-  src/isometric_nyc/generation/export_dzi.py generations/nyc
+  src/isometric_los_angeles/generation/export_dzi.py generations/los-angeles
 
 # Export with PNG instead of WebP
 DYLD_LIBRARY_PATH=/opt/homebrew/lib uv run python \
-  src/isometric_nyc/generation/export_dzi.py generations/nyc --png
+  src/isometric_los_angeles/generation/export_dzi.py generations/los-angeles --png
 
-# Export with bounds clipping (NYC outline)
+# Export with bounds clipping (Los Angeles outline)
 DYLD_LIBRARY_PATH=/opt/homebrew/lib uv run python \
-  src/isometric_nyc/generation/export_dzi.py generations/nyc --bounds v1.json
+  src/isometric_los_angeles/generation/export_dzi.py generations/los-angeles --bounds v1.json
 
 # Export without postprocessing (raw tiles)
 DYLD_LIBRARY_PATH=/opt/homebrew/lib uv run python \
-  src/isometric_nyc/generation/export_dzi.py generations/nyc --no-postprocess
+  src/isometric_los_angeles/generation/export_dzi.py generations/los-angeles --no-postprocess
 
 # Dry run to see what would be exported
 DYLD_LIBRARY_PATH=/opt/homebrew/lib uv run python \
-  src/isometric_nyc/generation/export_dzi.py generations/nyc --dry-run
+  src/isometric_los_angeles/generation/export_dzi.py generations/los-angeles --dry-run
 ```
 
 **Output files:**

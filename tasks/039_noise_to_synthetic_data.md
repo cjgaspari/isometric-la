@@ -1,6 +1,6 @@
 # Synthetic Data Noise
 
-We want to add a new parameter to the `src/isometric_nyc/synthetic_data/create_omni_dataset.py` script to apply to terrain:
+We want to add a new parameter to the `src/isometric_los_angeles/synthetic_data/create_omni_dataset.py` script to apply to terrain:
 
 - `gamma_shift`: Darken the masked/rendered region of the template image (float 0 to 1)
 

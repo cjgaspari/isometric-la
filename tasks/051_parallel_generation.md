@@ -1,6 +1,6 @@
 # Parallel Generation
 
-Rather than use the app in src/isometric_nyc/generation/app.py to generate quadrants, let's use a programmatic approach to generating an entire map's worth of quadrants.
+Rather than use the app in src/isometric_los_angeles/generation/app.py to generate quadrants, let's use a programmatic approach to generating an entire map's worth of quadrants.
 
 The idea is as follows:
 
@@ -12,9 +12,9 @@ The idea is as follows:
   2. generate the 1x2 and 2x1 gaps between the 2x2 quadrant tiles - note, that the 2x2 tiles on both side of the gap *must* be present in order for the 1x2 generation to be generated
   3. generate the 1x1 quadrants in the corners of the generations.
 - this plan should be stored in a `progress.db` sqlite DB, with the order being ALL of step 1, followed by ALL of step 2, followed by ALL of step 3
-- A script called `generate_full_map_layer.py` should be created in src/isometric_nyc/generation - it should take a --layer_dir directory and connect to the sqlite progress db. it should use the generation API endpoints in round-robin fashion with the given parameters in the config json, and go through each of the 3 steps until ALL quadrants have been generated.
+- A script called `generate_full_map_layer.py` should be created in src/isometric_los_angeles/generation - it should take a --layer_dir directory and connect to the sqlite progress db. it should use the generation API endpoints in round-robin fashion with the given parameters in the config json, and go through each of the 3 steps until ALL quadrants have been generated.
 
-- There must also be a `debug_generate_full_map_layer.py` that works very much like `src/isometric_nyc/generation/generate_debug_map.py` that takes a --layer_dir param that shows all TO BE GENERATED quadrants overlayed on the map, with the following color code: red - step 1 (2x2), green - step 2 (1x2 and 2x1) and blue - step 3 (1x1)
+- There must also be a `debug_generate_full_map_layer.py` that works very much like `src/isometric_los_angeles/generation/generate_debug_map.py` that takes a --layer_dir param that shows all TO BE GENERATED quadrants overlayed on the map, with the following color code: red - step 1 (2x2), green - step 2 (1x2 and 2x1) and blue - step 3 (1x1)
 
 Decide on a plan (NO CODE) and write it below:
 
@@ -42,7 +42,7 @@ layers/<layer_name>/
 ```json
 {
   "name": "snow_layer",
-  "generation_dir": "generations/nyc",
+  "generation_dir": "generations/los-angeles",
   "source_layer": "generations",  // or "renders"
   "model_endpoints": [
     {
@@ -170,15 +170,15 @@ Remember - the generated quadrants in this process are overlayed on top of exist
 
 #### 1. `init_layer.py`
 
-**Location:** `src/isometric_nyc/generation/init_layer.py`
+**Location:** `src/isometric_los_angeles/generation/init_layer.py`
 
 **Purpose:** Initialize a new layer directory with config and progress database.
 
 **Usage:**
 ```bash
-uv run python src/isometric_nyc/generation/init_layer.py \
+uv run python src/isometric_los_angeles/generation/init_layer.py \
   --name snow_layer \
-  --generation-dir generations/nyc \
+  --generation-dir generations/los-angeles \
   --source-layer generations \
   --bounds "-10,-10,50,50" \
   --model-endpoints model_endpoints.json \
@@ -195,13 +195,13 @@ uv run python src/isometric_nyc/generation/init_layer.py \
 
 #### 2. `generate_full_map_layer.py`
 
-**Location:** `src/isometric_nyc/generation/generate_full_map_layer.py`
+**Location:** `src/isometric_los_angeles/generation/generate_full_map_layer.py`
 
 **Purpose:** Execute the generation plan using multiple model endpoints.
 
 **Usage:**
 ```bash
-uv run python src/isometric_nyc/generation/generate_full_map_layer.py \
+uv run python src/isometric_los_angeles/generation/generate_full_map_layer.py \
   --layer-dir layers/snow \
   [--max-concurrent 4] \
   [--resume]
@@ -237,13 +237,13 @@ for item in pending_items:
 
 #### 3. `debug_generate_full_map_layer.py`
 
-**Location:** `src/isometric_nyc/generation/debug_generate_full_map_layer.py`
+**Location:** `src/isometric_los_angeles/generation/debug_generate_full_map_layer.py`
 
 **Purpose:** Visualize the generation plan overlayed on the map.
 
 **Usage:**
 ```bash
-uv run python src/isometric_nyc/generation/debug_generate_full_map_layer.py \
+uv run python src/isometric_los_angeles/generation/debug_generate_full_map_layer.py \
   --layer-dir layers/snow \
   [--output debug_layer_plan.html]
 ```

@@ -1,6 +1,6 @@
-# Isometric NYC Oxen Data
+# Isometric Los Angeles Oxen Data
 
-This directory contains the oxen data for the isometric nyc tiles. The NYC tiles (actually known as quadrants) are maintained at [https://www.oxen.ai/cannoneyed/isometric-nyc-tiles](https://www.oxen.ai/cannoneyed/isometric-nyc-tiles).
+This directory contains the oxen data for the isometric los-angeles tiles. The Los Angeles tiles (actually known as quadrants) are maintained at [https://www.oxen.ai/cannoneyed/isometric-los-angeles-tiles](https://www.oxen.ai/cannoneyed/isometric-los-angeles-tiles).
 
 ## Getting started
 
@@ -14,17 +14,17 @@ Next, clone the repo in this directory. The repo is ~10GB so this may take a lon
 
 ```
 cd oxen  # From the root directory
-oxen clone https://hub.oxen.ai/cannoneyed/isometric-nyc-tiles
+oxen clone https://hub.oxen.ai/cannoneyed/isometric-los-angeles-tiles
 ```
 
 Once the raw tile quadrants are loaded, you can load them into the generations db to develop/build locally.
 
 ```
 # From the root directory
-uv run python src/isometric_nyc/oxen_sync/import_from_oxen.py
+uv run python src/isometric_los_angeles/oxen_sync/import_from_oxen.py
 ```
 
-This will populate a new SQLite generations DB with the tile quadrant data in `generations/nyc`
+This will populate a new SQLite generations DB with the tile quadrant data in `generations/los-angeles`
 
 ## Pushing changes
 
@@ -32,7 +32,7 @@ If you've made any changes to the tile generation data, you can export those cha
 
 ```
 # From the root directory
-uv run python src/isometric_nyc/oxen_sync/export_from_oxen.py --oxen_repo <repo-name>
+uv run python src/isometric_los_angeles/oxen_sync/export_from_oxen.py --oxen_repo <repo-name>
 
 cd oxen/<repo-name>
 oxen add .

@@ -7,7 +7,7 @@ needing a database connection.
 
 import pytest
 
-from isometric_nyc.generation.make_strip_plan import (
+from isometric_los_angeles.generation.make_strip_plan import (
   Edge,
   GenerationStep,
   Point,

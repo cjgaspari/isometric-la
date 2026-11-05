@@ -176,7 +176,7 @@ plt.show()
 
 ## Task
 
-Your task is to implement a new script in the `src/isometric_nyc/generation`
+Your task is to implement a new script in the `src/isometric_los_angeles/generation`
 dir called "replace_color.py" that takes the following parameters:
 
 - generation_dir - the directory containing the generation db

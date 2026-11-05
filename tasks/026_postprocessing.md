@@ -1,12 +1,12 @@
 # Postprocessing
 
-Let's take the functionality of src/isometric*nyc/pixelate.py and apply it to
+Let's take the functionality of src/isometric*los-angeles/pixelate.py and apply it to
 the entire exported tile set in src/app/public/tiles. The only big change we
 need to make is to ensure we use the same reduced color set for \_all* tiles
 
 ## Implementation Complete ✅
 
-Created `src/isometric_nyc/postprocess_tiles.py` which:
+Created `src/isometric_los_angeles/postprocess_tiles.py` which:
 
 1. Samples colors from a representative subset of tiles
 2. Builds a unified 32-color palette
@@ -24,19 +24,19 @@ Created `src/isometric_nyc/postprocess_tiles.py` which:
 
 ```bash
 # Full processing (build palette + process all tiles)
-uv run python -m isometric_nyc.postprocess_tiles
+uv run python -m isometric_los_angeles.postprocess_tiles
 
 # Build palette only
-uv run python -m isometric_nyc.postprocess_tiles --build-palette-only
+uv run python -m isometric_los_angeles.postprocess_tiles --build-palette-only
 
 # Use existing palette
-uv run python -m isometric_nyc.postprocess_tiles --palette path/to/palette.png
+uv run python -m isometric_los_angeles.postprocess_tiles --palette path/to/palette.png
 
 # Customize settings
-uv run python -m isometric_nyc.postprocess_tiles --scale 2 --colors 32 --workers 8
+uv run python -m isometric_los_angeles.postprocess_tiles --scale 2 --colors 32 --workers 8
 
 # Process in place (overwrites originals!)
-uv run python -m isometric_nyc.postprocess_tiles --in-place
+uv run python -m isometric_los_angeles.postprocess_tiles --in-place
 ```
 
 ### To use processed tiles in the app

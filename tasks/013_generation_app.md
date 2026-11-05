@@ -4,7 +4,7 @@ Let's wire up generation to the view_generations.py web app! If the user has one
 or more quadrants selected, they can hit "generate" button to send a request to
 the python app.
 
-We'll use the logic in `src/isometric_nyc/generation/generate_template.py`
+We'll use the logic in `src/isometric_los_angeles/generation/generate_template.py`
 to a) determine if the generation is valid, b) generate the template (using the
 logic in generate_tile_omni.py) and c) extract the image tile data and save to
 the database.

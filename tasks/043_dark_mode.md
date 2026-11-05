@@ -2,20 +2,20 @@
 
 ## Step 1 ✅
 
-Let's to create a synthetic dataset for a "dark mode", where we re-render all tiles at night-time (with an optional light mask for a shader). We want to follow the same "infill / omni" template approach that we use for src/isometric_nyc/synthetic_data/create_omni_dataset.py - that is, for n "tiles" with a "render" and a "generation", we'll want to create m variants for each of the specified infill types (quadrants, rectangles, etc)
+Let's to create a synthetic dataset for a "dark mode", where we re-render all tiles at night-time (with an optional light mask for a shader). We want to follow the same "infill / omni" template approach that we use for src/isometric_los_angeles/synthetic_data/create_omni_dataset.py - that is, for n "tiles" with a "render" and a "generation", we'll want to create m variants for each of the specified infill types (quadrants, rectangles, etc)
 
 To make this dataset, we'll need a new script called "generate_dark_mode.py" in the src/generation - for now, copy the logic of `generate_water_mask_tile` since we'll be calling a nano banana model with a modified prompt (which I'll manuall add later).
 
-**Implementation:** `src/isometric_nyc/generation/generate_dark_mode.py`
+**Implementation:** `src/isometric_los_angeles/generation/generate_dark_mode.py`
 
 Usage:
 ```bash
 # Generate dark mode for a single tile
-uv run python src/isometric_nyc/generation/generate_dark_mode.py \
+uv run python src/isometric_los_angeles/generation/generate_dark_mode.py \
   generations/v01 0 0 --output-dir synthetic_data/datasets/dark_mode
 
 # Generate for multiple tiles
-uv run python src/isometric_nyc/generation/generate_dark_mode.py \
+uv run python src/isometric_los_angeles/generation/generate_dark_mode.py \
   generations/v01 --quadrants "(0,0),(2,0)" --output-dir synthetic_data/datasets/dark_mode
 ```
 

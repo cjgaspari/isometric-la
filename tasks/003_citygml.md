@@ -2,13 +2,12 @@
 
 We will implement a system to generate isometric city whitebox images from the data in the map_data directory.
 
-* Maybe we should use this repo? https://github.com/georocket/new-york-city-model-enhanced
+* Building footprints for Los Angeles: https://geohub.lacity.org/datasets/813fcefde1f64b209103107b26a8909f_0
 
-### ASG TUM
+### 3D City DB
 
-* This site looks very promising: https://www.asg.ed.tum.de/gis/projekte/new-york-city-3d/
-  - 3D City DB: https://github.com/3dcitydb
-  - Download zip of whole city here: http://www.3dcitydb.net/3dcitydb/fileadmin/public/datasets/NYC/NYC_buildings_CityGML_LoD2/NYC_Buildings_LoD2_CityGML.zip
+* 3D City DB: https://github.com/3dcitydb
+* Import CityGML / LoD2 building models for Los Angeles into 3DCityDB when available locally under `map_data/3dcitydb`.
 
 Installing Docker
 Installing the 3DCityDB docker image: https://docs.3dcitydb.org/1.1/3dcitydb/docker
@@ -19,10 +18,10 @@ docker pull 3dcitydb/3dcitydb-pg
 
 ```bash
 docker run --name 3dciytdb -p 5432:5432 -d \
-    -e POSTGRES_PASSWORD=isometric-nyc \
+    -e POSTGRES_PASSWORD=isometric-los-angeles \
     -e SRID=25832 \
-    -e POSTGRES_DB=isometric-nyc \
-    -e POSTGRES_USER=isometric-nyc \
+    -e POSTGRES_DB=isometric-los-angeles \
+    -e POSTGRES_USER=isometric-los-angeles \
     -e POSTGIS_SFCGAL=true \
     3dcitydb/3dcitydb-pg
 ```
@@ -46,10 +45,10 @@ From the github repo:
 docker run --rm --name citydb-tool -it \
     -e CITYDB_HOST=host.docker.internal \
     -e CITYDB_PORT=5432 \
-    -e CITYDB_NAME=isometric-nyc \
-    -e CITYDB_USERNAME=isometric-nyc \
-    -e CITYDB_PASSWORD=isometric-nyc \
-    -v /Users/andycoenen/cannoneyed/isometric-nyc/map_data/3dcitydb:/data \
+    -e CITYDB_NAME=isometric-los-angeles \
+    -e CITYDB_USERNAME=isometric-los-angeles \
+    -e CITYDB_PASSWORD=isometric-los-angeles \
+    -v /Users/andycoenen/cannoneyed/isometric-los-angeles/map_data/3dcitydb:/data \
     3dcitydb/citydb-tool connect
 ```
 
@@ -59,9 +58,9 @@ Connection successful! Let's try importing the data
 docker run --rm --name citydb-tool -it \
     -e CITYDB_HOST=host.docker.internal \
     -e CITYDB_PORT=5432 \
-    -e CITYDB_NAME=isometric-nyc \
-    -e CITYDB_USERNAME=isometric-nyc \
-    -e CITYDB_PASSWORD=isometric-nyc \
-    -v /Users/andycoenen/cannoneyed/isometric-nyc/map_data/3dcitydb:/data \
-    3dcitydb/citydb-tool import citygml /data/NYC_Buildings_LoD2_CityGML.gml
+    -e CITYDB_NAME=isometric-los-angeles \
+    -e CITYDB_USERNAME=isometric-los-angeles \
+    -e CITYDB_PASSWORD=isometric-los-angeles \
+    -v /Users/andycoenen/cannoneyed/isometric-los-angeles/map_data/3dcitydb:/data \
+    3dcitydb/citydb-tool import citygml /data/LosAngeles_Buildings_LoD2_CityGML.gml
 ```

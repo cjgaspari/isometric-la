@@ -170,7 +170,7 @@ function App() {
 			<header className="app-header">
 				<h1>Water Shader Demo</h1>
 				<p className="subtitle">
-					Isometric NYC • Tile ({coords.x}, {coords.y})
+					Isometric Los Angeles • Tile ({coords.x}, {coords.y})
 				</p>
 			</header>
 

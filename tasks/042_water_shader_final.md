@@ -2,7 +2,7 @@
 
 ## Step 1: ✅ COMPLETE
 
-For the water shader, we need to create a synthetic dataset for a black/white water mask (as specified in tasks/021_water_shader.md). We want to follow the same "infill / omni" template approach that we use for src/isometric_nyc/synthetic_data/create_omni_dataset.py - that is, for n "tiles" with a "render" and a "generation", we'll want to create m variants for each of the specified infill types (quadrants, rectangles, etc)
+For the water shader, we need to create a synthetic dataset for a black/white water mask (as specified in tasks/021_water_shader.md). We want to follow the same "infill / omni" template approach that we use for src/isometric_los_angeles/synthetic_data/create_omni_dataset.py - that is, for n "tiles" with a "render" and a "generation", we'll want to create m variants for each of the specified infill types (quadrants, rectangles, etc)
 
 To make this dataset, we'll need a new script called "generate_water_mask_tile.py" in the src/generation - for now, copy the logic of `generate_nano_banana` since we'll be calling a nano banana model with a modified prompt. Ensure that the script takes the following extra params
 
@@ -10,21 +10,21 @@ To make this dataset, we'll need a new script called "generate_water_mask_tile.p
 
 ### Implementation
 
-Script created at: `src/isometric_nyc/generation/generate_water_mask_tile.py`
+Script created at: `src/isometric_los_angeles/generation/generate_water_mask_tile.py`
 
 **Usage Examples:**
 
 ```bash
 # Generate water mask for tile at (0,0) using pixel art (default):
-uv run python src/isometric_nyc/generation/generate_water_mask_tile.py \
+uv run python src/isometric_los_angeles/generation/generate_water_mask_tile.py \
   generations/v01 0 0 --output-dir synthetic_data/datasets/water_masks
 
 # Generate for multiple tiles:
-uv run python src/isometric_nyc/generation/generate_water_mask_tile.py \
+uv run python src/isometric_los_angeles/generation/generate_water_mask_tile.py \
   generations/v01 --quadrants "(0,0),(2,0),(0,2)" --output-dir synthetic_data/datasets/water_masks
 
 # Use 3D renders as input instead of pixel art (rare):
-uv run python src/isometric_nyc/generation/generate_water_mask_tile.py \
+uv run python src/isometric_los_angeles/generation/generate_water_mask_tile.py \
   generations/v01 0 0 --output-dir synthetic_data/datasets/water_masks --use-render
 ```
 

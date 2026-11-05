@@ -1,0 +1,104 @@
+{
+  "camera_azimuth_degrees": -15,
+  "camera_elevation_degrees": -45,
+  "width_px": 1080,
+  "height_px": 1080,
+  "view_height_meters": 200,
+  "locations": [
+    {
+      "name": "Pershing Square",
+      "lat": 34.0481,
+      "lon": -118.2534
+    },
+    {
+      "name": "Walt Disney Concert Hall",
+      "lat": 34.0553,
+      "lon": -118.2498
+    },
+    {
+      "name": "Griffith Observatory",
+      "lat": 34.1184,
+      "lon": -118.3004
+    },
+    {
+      "name": "Hollywood Sign",
+      "lat": 34.1341,
+      "lon": -118.3215
+    },
+    {
+      "name": "Santa Monica Pier",
+      "lat": 34.0094,
+      "lon": -118.4973
+    },
+    {
+      "name": "Venice Beach",
+      "lat": 33.9850,
+      "lon": -118.4695
+    },
+    {
+      "name": "Dodger Stadium",
+      "lat": 34.0739,
+      "lon": -118.2400
+    },
+    {
+      "name": "Crypto.com Arena",
+      "lat": 34.0430,
+      "lon": -118.2673
+    },
+    {
+      "name": "Getty Center",
+      "lat": 34.0780,
+      "lon": -118.4741
+    },
+    {
+      "name": "UCLA",
+      "lat": 34.0689,
+      "lon": -118.4452
+    },
+    {
+      "name": "Los Angeles City Hall",
+      "lat": 34.0537,
+      "lon": -118.2427
+    },
+    {
+      "name": "Echo Park Lake",
+      "lat": 34.0732,
+      "lon": -118.2606
+    },
+    {
+      "name": "LAX",
+      "lat": 33.9425,
+      "lon": -118.4081
+    },
+    {
+      "name": "Universal Studios Hollywood",
+      "lat": 34.1381,
+      "lon": -118.3534
+    },
+    {
+      "name": "The Grove",
+      "lat": 34.0719,
+      "lon": -118.3575
+    },
+    {
+      "name": "MacArthur Park",
+      "lat": 34.0576,
+      "lon": -118.2779
+    },
+    {
+      "name": "Inglewood",
+      "lat": 33.9617,
+      "lon": -118.3531
+    },
+    {
+      "name": "Pasadena",
+      "lat": 34.1478,
+      "lon": -118.1445
+    },
+    {
+      "name": "Long Beach",
+      "lat": 33.7701,
+      "lon": -118.1937
+    }
+  ]
+}

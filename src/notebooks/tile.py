@@ -52,7 +52,7 @@ def _(gemini_api_key, genai):
 
 @app.cell
 def _(json, os):
-    tile_dir = "/Users/andycoenen/cannoneyed/isometric-nyc/tile_plans/v01/000_001"
+    tile_dir = "/Users/andycoenen/cannoneyed/isometric-los-angeles/tile_plans/v01/000_001"
     references_dir = os.path.join(os.getcwd() , "references")
 
     view_json_path = os.path.join(tile_dir, 'view.json')
@@ -119,7 +119,7 @@ def _(Image, Images, client, mo, os, tile_dir, types):
         )
 
         generation_prompt = f"""
-    Generate the missing half of an isometric pixel art image of a small section of New York City, in the style of classic computer city builder games such as SimCity 3000.
+    Generate the missing half of an isometric pixel art image of a small section of Los Angeles, in the style of classic computer city builder games such as SimCity 3000.
 
     Image Descriptions:
     {images.get_descriptions()}

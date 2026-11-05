@@ -33,16 +33,21 @@ def _():
 
 
 @app.cell
-def _(GoogleMapsClient, NYCOpenDataClient, load_dotenv, os):
+def _(load_dotenv, os):
+    from isometric_los_angeles.data.google_maps import GoogleMapsClient
+    from isometric_los_angeles.data.los_angeles_opendata import (
+        LosAngelesOpenDataClient,
+    )
+
     load_dotenv()
 
     gemini_api_key = os.getenv("GEMINI_API_KEY")
     google_maps_api_key = os.getenv("GOOGLE_MAPS_API_KEY")
-    nyc_opendata_app_token = os.getenv("NYC_OPENDATA_APP_TOKEN")
+    los_angeles_opendata_app_token = os.getenv("LOS_ANGELES_OPENDATA_APP_TOKEN")
 
     gmaps = GoogleMapsClient(google_maps_api_key)
-    nyc = NYCOpenDataClient(nyc_opendata_app_token)
-    return gemini_api_key, gmaps, nyc
+    los_angeles = LosAngelesOpenDataClient(los_angeles_opendata_app_token)
+    return gemini_api_key, gmaps, los_angeles
 
 
 @app.cell
@@ -53,7 +58,7 @@ def _(mo):
 
 
 @app.cell
-def _(Any, address_input, dataclasses, gmaps, nyc):
+def _(Any, address_input, dataclasses, gmaps, los_angeles):
     @dataclasses.dataclass
     class BuildingData:
         address: str
@@ -76,7 +81,7 @@ def _(Any, address_input, dataclasses, gmaps, nyc):
 
     def get_building_data(address: str):
         lat, lng = get_lat_lng(address)
-        footprint_data = nyc.get_building_footprint(lat, lng)
+        footprint_data = los_angeles.get_building_footprint(lat, lng)
         sat_url = gmaps.get_satellite_image_url(lat, lng)
         sv_url = gmaps.get_street_view_image_url(lat, lng)
 
@@ -125,7 +130,7 @@ def _(
     street_view_image,
     types,
 ):
-    prompt = f"""An isometric pixel art view of the New York City building at 
+    prompt = f"""An isometric pixel art view of the Los Angeles building at 
     {data.address} (coords: {data.coords[0]}, {data.coords[1]}).
     In the style of SimCity 4000 (better than 3000). There must be no text or other graphics on the image. There should be no streets, cars, people - just the building on a plain white background.
     Please use the satellite overhead image (A) and the street view image (B) to guide generation. Ensure you stick to the exact shape of the specified building from the reference images.

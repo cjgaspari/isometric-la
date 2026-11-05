@@ -35,7 +35,7 @@ def _(gemini_api_key, genai):
 
 @app.cell
 def _(json, os):
-    tile_dir = "/Users/andycoenen/cannoneyed/isometric-nyc/tile_plans/test/001"
+    tile_dir = "/Users/andycoenen/cannoneyed/isometric-los-angeles/tile_plans/test/001"
     references_dir = os.path.join(os.getcwd() , "references")
 
     view_json_path = os.path.join(tile_dir, 'view.json')
@@ -66,7 +66,7 @@ def _(client, latitude, longitude, os, tile_dir, types):
     """.strip()
 
     description_prompt = f"""
-    You are an advanced image analysis agent. Your task is to generate a checklist of no more than five features from the attached overhead isometric render of a section of New York City. These features will be used to populate a prompt for an image generation model that will transform the input image into a stylized isometric pixel art style image in the style of SimCity 3000 based on the constraints. It's critical that the model adhere to the colors and textures of the guide image, and that's what the checklist should aim to ensure.
+    You are an advanced image analysis agent. Your task is to generate a checklist of no more than five features from the attached overhead isometric render of a section of Los Angeles. These features will be used to populate a prompt for an image generation model that will transform the input image into a stylized isometric pixel art style image in the style of SimCity 3000 based on the constraints. It's critical that the model adhere to the colors and textures of the guide image, and that's what the checklist should aim to ensure.
 
     The following instructions will also be provided to the model for adhering to the pixel art style - you may emphasize any of these points to ensure that the model most accurately adheres to the colors, styles, and features of the reference image.
 

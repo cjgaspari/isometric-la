@@ -34,8 +34,8 @@ def _(gemini_api_key, genai):
 
 @app.cell
 def _():
-    references_dir = "/Users/andycoenen/cannoneyed/isometric-nyc/exports/trees"
-    test_dir = "/Users/andycoenen/cannoneyed/isometric-nyc/exports/trees/test"
+    references_dir = "/Users/andycoenen/cannoneyed/isometric-los-angeles/exports/trees"
+    test_dir = "/Users/andycoenen/cannoneyed/isometric-los-angeles/exports/trees/test"
     return references_dir, test_dir
 
 
@@ -107,7 +107,7 @@ def _(Image, client, mo, os, references_dir, test_dir, types):
 
         return output_image, input_image
 
-    output_image, input_image = fix_trees('/Users/andycoenen/cannoneyed/isometric-nyc/exports/trees/test/export_tl_38_-54_br_39_-53.png')
+    output_image, input_image = fix_trees('/Users/andycoenen/cannoneyed/isometric-los-angeles/exports/trees/test/export_tl_38_-54_br_39_-53.png')
 
     _input_image = input_image.resize((512, 512))
     _output_image = output_image.resize((512, 512))

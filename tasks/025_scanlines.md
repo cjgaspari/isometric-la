@@ -1,6 +1,6 @@
 # Scanlines
 
-in src/isometric_nyc/app, can we add "scanlines" to an overlay canvas on top of
+in src/isometric_los_angeles/app, can we add "scanlines" to an overlay canvas on top of
 the deck.gl tile viewer?
 
 I asked gemini for a shader, and this is what it suggested

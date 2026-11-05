@@ -5,7 +5,7 @@
 ## Task Description
 
 Next, I want to create a script that works like the logic in
-`src/isometric_nyc/generation/view_generations.py`, except it generates
+`src/isometric_los_angeles/generation/view_generations.py`, except it generates
 quadrants programatically - please extract the logic out of that web server into
 a "generate_omni.py" library, and use that logic for both the `view_generations`
 script and a new `generate_tiles_omni` script.
@@ -37,7 +37,7 @@ off.
 
 ### Files Created/Modified
 
-1. **`src/isometric_nyc/generation/generate_omni.py`** (NEW)
+1. **`src/isometric_los_angeles/generation/generate_omni.py`** (NEW)
 
    - Reusable library with core generation logic
    - `parse_quadrant_tuple()` / `parse_quadrant_list()` - parsing quadrant
@@ -47,14 +47,14 @@ off.
    - `render_quadrant()` - rendering a quadrant via Playwright
    - `run_generation_for_quadrants()` - main generation pipeline
 
-2. **`src/isometric_nyc/generation/generate_tiles_omni.py`** (NEW)
+2. **`src/isometric_los_angeles/generation/generate_tiles_omni.py`** (NEW)
 
    - Command-line script for batch generation
    - Supports `--quadrants "(0,1),(0,2)"` for direct specification
    - Supports `--quadrants-json path/to/file.json` for batch processing
    - Updates JSON file after each entry for resume capability
 
-3. **`src/isometric_nyc/generation/view_generations.py`** (MODIFIED)
+3. **`src/isometric_los_angeles/generation/view_generations.py`** (MODIFIED)
    - Now imports from `generate_omni.py`
    - Uses shared `run_generation_for_quadrants()` function
    - Removed duplicated code
@@ -63,12 +63,12 @@ off.
 
 ```bash
 # Generate specific quadrants:
-uv run python src/isometric_nyc/generation/generate_tiles_omni.py \
+uv run python src/isometric_los_angeles/generation/generate_tiles_omni.py \
   <generation_dir> \
   --quadrants "(0,1),(0,2)"
 
 # Process a batch JSON file:
-uv run python src/isometric_nyc/generation/generate_tiles_omni.py \
+uv run python src/isometric_los_angeles/generation/generate_tiles_omni.py \
   <generation_dir> \
   --quadrants-json path/to/quadrants.json
 ```

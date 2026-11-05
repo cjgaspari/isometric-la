@@ -1,6 +1,6 @@
 # Nano Banana Generation
 
-We need a new script in src/isometric_nyc/generation called `generate_tile_nano_banana.py` that uses almost all of the same logic as `generate_tile_omni.py`, except we use a nano banana generation (using the nano banana generation logic in src/isometric_nyc/generate_tile_v2.py)
+We need a new script in src/isometric_los_angeles/generation called `generate_tile_nano_banana.py` that uses almost all of the same logic as `generate_tile_omni.py`, except we use a nano banana generation (using the nano banana generation logic in src/isometric_los_angeles/generate_tile_v2.py)
 
 We should accept the following parameters:
 

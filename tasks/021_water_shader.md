@@ -1,7 +1,7 @@
 # Water shader
 
 I'd like to build a water shader for the tile data that we've composed for our
-isometric pixel art map of NYC.
+isometric pixel art map of Los Angeles.
 
 We'll use a 4x4 quadrant grid to debug the shader.
 
@@ -107,7 +107,7 @@ void fragment() {
     into hard lines. It ensures you don't get "blurry" generic game water, but
     hard bands of color.
 2.  **The Mask:** By using the blurred mask, the waves automatically contour to
-    the shape of your isometric NYC islands. If you have a pier jutting out, the
+    the shape of your isometric Los Angeles islands. If you have a pier jutting out, the
     blur will wrap around it, and the shader waves will naturally curl around
     the pier.
 

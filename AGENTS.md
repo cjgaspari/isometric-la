@@ -1,6 +1,6 @@
-# Isometric NYC
+# Isometric Los Angeles
 
-This repo contains the code for generating an isometric pixel art view of New York City using the latest and greatest AI tools available.
+This repo contains the code for generating an isometric pixel art view of Los Angeles using the latest and greatest AI tools available.
 
 ## Technology Stack
 
@@ -53,7 +53,7 @@ Always execute commands within the project's context using `uv run`. Do not manu
 .
 ├── .venv/               # Managed by uv (do not touch)
 ├── src/                 # Source code
-│   └── isometric_nyc/   # Main package
+│   └── isometric_los_angeles/   # Main package
 ├── tests/               # Test suite
 ├── tasks/               # Task files, which are markdown files that defined new
 │                        # tasks for a coding agent to execute (see below)
@@ -66,7 +66,7 @@ Always execute commands within the project's context using `uv run`. Do not manu
 ## Coding Standards
 
 1.  **Type Hints:** All function signatures must include Python type hints.
-2.  **Imports:** Use absolute imports for project modules (e.g., `from isometric_nyc.utils import helper`).
+2.  **Imports:** Use absolute imports for project modules (e.g., `from isometric_los_angeles.utils import helper`).
 3.  **Configuration:** All project metadata and tool configuration must reside in `pyproject.toml`.
 4.  **Lockfile:** Never ignore `uv.lock`. If `pyproject.toml` changes, run `uv lock` or `uv sync` to update it.
 

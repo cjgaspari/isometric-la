@@ -1,12 +1,12 @@
 # Debug Map
 
-We need to create a `debug_map` script in `src/isometric_nyc/generation`.
+We need to create a `debug_map` script in `src/isometric_los_angeles/generation`.
 
 The idea is very simple - the script should have a single parameter -
 `generation_dir` (which should default to `generations/v01`). A python script
 should scrape all of the x,y coordinates for generated quadrants in the sqlite
 db. Then, we need to overlay an indicator (25% alpha red) rectangle of these
-(isometric) quadrants over a real standard map of NYC so we can see how much
+(isometric) quadrants over a real standard map of Los Angeles so we can see how much
 progress has been made.
 
 This can be a python script that outputs an image.

@@ -20,7 +20,7 @@ rclone config
 # Set endpoint to your R2 endpoint URL
 ```
 
-3. **Create an R2 bucket** named `isometric-nyc` in your Cloudflare dashboard
+3. **Create an R2 bucket** named `isometric-los-angeles` in your Cloudflare dashboard
 
 ### Deploy Script
 
@@ -72,7 +72,7 @@ The `--r2` flag uploads:
 - `tiles_metadata.json` - Custom metadata (grid dimensions, origin, etc.)
 - `tiles_files/` - Tile pyramid (~60,000+ WebP files)
 
-Files are uploaded to `isometric-nyc/` prefix in the R2 bucket.
+Files are uploaded to `isometric-los-angeles/` prefix in the R2 bucket.
 
 ### Caching
 

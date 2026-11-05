@@ -1,8 +1,8 @@
 # Bounds App
 
 We want to determine the x/y tile boundaries for a full-scale isometric pixel
-art generation map of New York City. Create a script in the
-`src/isometric_nyc/generation` directory called "visualize bounds" that
+art generation map of Los Angeles. Create a script in the
+`src/isometric_los_angeles/generation` directory called "visualize bounds" that
 takes three parameters:
 
 generation_dir - the directory containing the generation config top-left - an

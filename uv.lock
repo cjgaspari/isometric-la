@@ -1072,7 +1072,7 @@ wheels = [
 ]
 
 [[package]]
-name = "isometric-nyc"
+name = "isometric-los-angeles"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
