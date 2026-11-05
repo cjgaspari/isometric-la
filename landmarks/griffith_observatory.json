@@ -1,0 +1,16 @@
+{
+  "id": "griffith-observatory",
+  "name": "Griffith Observatory",
+  "lat": 34.1184,
+  "lon": -118.3004,
+  "size_meters": 380,
+  "camera_azimuth_degrees": -20,
+  "camera_elevation_degrees": -42,
+  "view_height_meters": 260,
+  "style_reference": "references/style_c.png",
+  "print": {
+    "resolution": "2k",
+    "aspect_ratio": "1:1"
+  },
+  "prompt_extra": "Keep the dome and Art Deco observatory building readable; include surrounding park hills."
+}

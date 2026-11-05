@@ -44,6 +44,7 @@ dependencies = [
 [project.scripts]
 export-to-oxen = "isometric_nyc.oxen_sync.export_to_oxen:main"
 import-from-oxen = "isometric_nyc.oxen_sync.import_from_oxen:main"
+landmark-snapshot = "isometric_nyc.landmark_snapshot.cli:main"
 
 [tool.ruff]
 line-length = 88

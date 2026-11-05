@@ -1,0 +1,16 @@
+{
+  "id": "disney-concert-hall",
+  "name": "Walt Disney Concert Hall",
+  "lat": 34.0553,
+  "lon": -118.2498,
+  "size_meters": 320,
+  "camera_azimuth_degrees": -10,
+  "camera_elevation_degrees": -45,
+  "view_height_meters": 220,
+  "style_reference": "references/style_c.png",
+  "print": {
+    "resolution": "2k",
+    "aspect_ratio": "1:1"
+  },
+  "prompt_extra": "Preserve Frank Gehry's curved steel forms as clean isometric planes and highlights."
+}

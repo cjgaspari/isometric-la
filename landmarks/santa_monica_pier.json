@@ -1,0 +1,16 @@
+{
+  "id": "santa-monica-pier",
+  "name": "Santa Monica Pier",
+  "lat": 34.0094,
+  "lon": -118.4973,
+  "size_meters": 500,
+  "camera_azimuth_degrees": -25,
+  "camera_elevation_degrees": -40,
+  "view_height_meters": 300,
+  "style_reference": "references/style_c.png",
+  "print": {
+    "resolution": "2k",
+    "aspect_ratio": "16:9"
+  },
+  "prompt_extra": "Include the pier deck, ferris wheel, and Pacific shoreline water in pixel-art style."
+}
